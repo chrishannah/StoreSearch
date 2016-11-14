@@ -105,7 +105,7 @@
 					83CAD65F1DD919CE00F110CC = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 35H8Q2N6J9;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;

@@ -135,7 +135,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         search()
     }
     @IBAction func resetButtonPressed(_ sender: Any) {
-        setUpEntityFields(mediaType: "")
+        termField.stringValue = ""
+        outputField.string = ""
+        mediaPopUp.selectItem(at: 0)
+        countryPopUp.selectItem(at: 0)
+        entityPopUp.selectItem(at: 0)
+        setUpSearchFields()
     }
     @IBAction func mediaTypeSelected(_ sender: Any) {
         let mediaType = media.getParameterForLabel(label: (mediaPopUp.selectedItem?.title)!)
