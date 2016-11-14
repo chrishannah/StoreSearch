@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -20,6 +21,9 @@
                 <outlet property="entityPopUp" destination="lhG-SY-vF8" id="Cf8-xM-pmt"/>
                 <outlet property="explicitPopUp" destination="QKt-8S-kfd" id="Qvg-9C-3eK"/>
                 <outlet property="languagePopUp" destination="ixA-0b-f54" id="hBd-AR-Era"/>
+                <outlet property="limitField" destination="ydY-vh-6lU" id="28O-cM-32V"/>
+                <outlet property="limitSlider" destination="NVa-Ev-Et2" id="BMa-MV-O82"/>
+                <outlet property="limitSliderChanged" destination="EiT-Mj-1SZ" id="mGt-TR-Gw7"/>
                 <outlet property="mediaPopUp" destination="sd1-OB-tNE" id="WEG-Zm-mfP"/>
                 <outlet property="outputField" destination="JJH-IR-Vtd" id="tFs-qs-jKu"/>
                 <outlet property="termField" destination="6e3-uc-pxt" id="tot-Xe-u7m"/>
@@ -707,7 +711,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8b-ga-J7X">
-                        <rect key="frame" x="14" y="55" width="83" height="32"/>
+                        <rect key="frame" x="14" y="13" width="83" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EZu-Vf-0Hf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -716,6 +720,17 @@
                         <connections>
                             <action selector="searchButtonPressed:" target="Voe-Tx-rLC" id="GVv-DX-lDq"/>
                         </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVV-pM-puc">
+                        <rect key="frame" x="101" y="13" width="75" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FBs-aR-oCD">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="resetButtonPressed:" target="Voe-Tx-rLC" id="wGC-sE-SQ6"/>
+                            </connections>
+                        </buttonCell>
                     </button>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-OB-tNE">
                         <rect key="frame" x="141" y="253" width="161" height="26"/>
@@ -855,17 +870,32 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVV-pM-puc">
-                        <rect key="frame" x="101" y="55" width="75" height="32"/>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-Ev-Et2">
+                        <rect key="frame" x="141" y="76" width="160" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FBs-aR-oCD">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="50" doubleValue="10" tickMarkPosition="below" sliderType="linear" id="KmU-Up-xKh"/>
+                        <connections>
+                            <action selector="limitSliderChanged:" target="Voe-Tx-rLC" id="QTl-n4-PMj"/>
+                        </connections>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydY-vh-6lU">
+                        <rect key="frame" x="93" y="77" width="44" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="10" id="Euk-xE-eFB">
+                            <font key="font" metaFont="systemMedium" size="13"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tGs-gk-blt">
+                        <rect key="frame" x="20" y="77" width="71" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Limit:" id="IgA-Ks-h9d">
                             <font key="font" metaFont="system"/>
-                            <connections>
-                                <action selector="resetButtonPressed:" target="Voe-Tx-rLC" id="wGC-sE-SQ6"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="139" y="-245.5"/>

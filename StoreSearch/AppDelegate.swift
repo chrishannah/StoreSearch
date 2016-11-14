@@ -23,12 +23,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var explicitPopUp: NSPopUpButton!
     
     @IBOutlet var outputField: NSTextView!
+    @IBOutlet weak var limitField: NSTextField!
+    @IBOutlet weak var limitSlider: NSSlider!
     
     let baseURL:String = "https://itunes.apple.com/search"
     
     let media = Media()
     let country = Country()
     let entity = Entity()
+    var limit = 10
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
             setUpSearchFields()
@@ -81,6 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let attribute = ""
         let language = ""
         let explicit = ""
+        let limitString = "\(limit)"
         
         
         var parameterString = "?term=\(term)"
@@ -102,6 +106,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if (explicit != "") {
             parameterString += "&explicit=\(explicit)"
+        }
+        if (limitString != "") {
+            parameterString += "&limit=\(limitString)"
         }
         
         return parameterString
@@ -141,6 +148,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         countryPopUp.selectItem(at: 0)
         entityPopUp.selectItem(at: 0)
         setUpSearchFields()
+        limit = 10
+        limitSlider.intValue = 10
+        limitField.stringValue = "\(limit)"
+    }
+    @IBAction func limitSliderChanged(_ sender: Any) {
+        limit = Int(limitSlider.intValue)
+        limitField.stringValue = "\(limit)"
     }
     @IBAction func mediaTypeSelected(_ sender: Any) {
         let mediaType = media.getParameterForLabel(label: (mediaPopUp.selectedItem?.title)!)
