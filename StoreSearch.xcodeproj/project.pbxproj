@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		835C761A1DD9D097003A8B20 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C76191DD9D097003A8B20 /* Entity.swift */; };
+		8382E0161DD9E91200B5931F /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 8382E0151DD9E91200B5931F /* readme.md */; };
 		839F57101DD9C5D40004EB6E /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F570F1DD9C5D40004EB6E /* Media.swift */; };
 		839F57121DD9CD3B0004EB6E /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839F57111DD9CD3B0004EB6E /* Country.swift */; };
 		83CAD6641DD919D600F110CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAD6631DD919D600F110CC /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		835C76191DD9D097003A8B20 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		8382E0151DD9E91200B5931F /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = SOURCE_ROOT; };
 		839F570F1DD9C5D40004EB6E /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		839F57111DD9CD3B0004EB6E /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Country.swift; path = ../Country.swift; sourceTree = "<group>"; };
 		83CAD6601DD919D500F110CC /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 				835C76191DD9D097003A8B20 /* Entity.swift */,
 				83CAD6651DD919D600F110CC /* Assets.xcassets */,
 				83CAD6671DD919D700F110CC /* MainMenu.xib */,
+				8382E0151DD9E91200B5931F /* readme.md */,
 				83CAD66A1DD919D700F110CC /* Info.plist */,
 			);
 			path = StoreSearch;
@@ -149,6 +152,7 @@
 				835C761A1DD9D097003A8B20 /* Entity.swift in Sources */,
 				839F57121DD9CD3B0004EB6E /* Country.swift in Sources */,
 				83CAD6641DD919D600F110CC /* AppDelegate.swift in Sources */,
+				8382E0161DD9E91200B5931F /* readme.md in Sources */,
 				839F57101DD9C5D40004EB6E /* Media.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
